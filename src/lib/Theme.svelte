@@ -1,12 +1,13 @@
 <script lang="ts">
   let dark = $state(matchMedia('(prefers-color-scheme: dark)').matches)
 
-  $effect(() => {
+  function toggle() {
+    dark = !dark
     document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
-  })
+  }
 </script>
 
-<button onclick={() => (dark = !dark)}>
+<button onclick={toggle}>
   {dark ? '☀' : '☾'}
 </button>
 
