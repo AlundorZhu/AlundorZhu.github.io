@@ -1,9 +1,12 @@
-<script>
-  import ThemeToggle from "./lib/ThemeToggle.svelte";
+<script lang="ts">
+  import ThemeToggle from './lib/ThemeToggle.svelte'
+  import NameRoller from './lib/NameRoller.svelte'
+
+  const names = ['Ziqiang Zhu', '朱自强', 'Joe Zhu']
 </script>
 
 <header>
-  <h1>Ziqiang Zhu</h1>
+  <h1><NameRoller {names} /></h1>
   <ThemeToggle />
 </header>
 
