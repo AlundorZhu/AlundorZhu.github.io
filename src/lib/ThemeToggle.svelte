@@ -16,7 +16,7 @@
     background: none;
     border: none;
     color: inherit;
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
     padding: 0;
   }

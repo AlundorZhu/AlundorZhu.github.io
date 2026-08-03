@@ -1,8 +1,8 @@
 :root {
   color-scheme: light dark;
+  font: 18px/1.6 system-ui, sans-serif;
 }
 
 body {
   margin: 3rem;
-  font: 18px/1.6 system-ui, sans-serif;
 }
