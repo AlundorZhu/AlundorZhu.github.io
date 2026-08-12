@@ -6,7 +6,7 @@
 </script>
 
 <header>
-  <h1><NameRoller {names} /></h1>
+  <h1 style="margin: 0"><NameRoller {names} /></h1>
   <ThemeToggle />
 </header>
 
