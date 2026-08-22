@@ -22,7 +22,7 @@
       title: 'A Principled Framework for Safe Algorithm Updates in Automated Insulin Delivery Systems',
       href: 'https://doi.org/10.48550/arXiv.2606.13882',
       authors: "Thomas Screven, Ziqiang (Joe) Zhu, Deniz Cengiz, Rayhan A. Lal, Korey K. Hood, Samuel T. King",
-      venue: "preprint"
+      venue: ""
     },
     {
       title: 'Computer Vision for Movement Observation and Recovery Enhancement (C-MORE): Box and Blocks Test',
@@ -51,10 +51,11 @@
 
 <main>
   <p>
-    I'm a [PhD student / undergrad] in [department] at
-    <a href="https://www.ucdavis.edu">UC Davis</a>, where I work on
-    [what you work on]. [One more sentence — what pulled you into it, or what
-    you're building right now.]
+    I'm a master's student in computer science at
+    <a href="https://www.ucdavis.edu">UC Davis</a>, where I work in Prof.
+    <a href="https://bob.cs.ucdavis.edu/">Sam King</a>'s lab.
+    Currently building an insulin pump for type 1 diabetes, and a stroke
+    rehabilitation assessment <a href="https://github.com/CMORE-UCD/iOS-app">app</a>.
   </p>
 
   <section>
