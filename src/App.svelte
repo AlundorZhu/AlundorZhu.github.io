@@ -7,6 +7,7 @@
   const links = [
     { label: 'github', href: 'https://github.com/AlundorZhu' },
     { label: 'linkedin', href: 'https://www.linkedin.com/in/joe-zhu-032153259/' },
+    { label: 'resume', href: 'https://github.com/AlundorZhu/Resume/blob/main/main.pdf'}
   ]
 
   type Publication = {
@@ -16,13 +17,24 @@
     venue: string
   }
 
-  // TODO: real entries, newest first
   const publications: Publication[] = [
     {
-      title: 'Placeholder — your paper title goes here',
-      href: 'https://arxiv.org/abs/0000.00000',
-      authors: 'Ziqiang Zhu, A. Coauthor, B. Advisor',
-      venue: 'Conference on Something, 2026',
+      title: 'A Principled Framework for Safe Algorithm Updates in Automated Insulin Delivery Systems',
+      href: 'https://doi.org/10.48550/arXiv.2606.13882',
+      authors: "Thomas Screven, Ziqiang (Joe) Zhu, Deniz Cengiz, Rayhan A. Lal, Korey K. Hood, Samuel T. King",
+      venue: "preprint"
+    },
+    {
+      title: 'Computer Vision for Movement Observation and Recovery Enhancement (C-MORE): Box and Blocks Test',
+      href: 'https://doi.org/10.3390/bioengineering13060602',
+      authors: 'Kim, Jun Min, Ziqiang (Joe) Zhu, Hari Venugopalan, Vicky Chan, Matthew K. Farrens, Samuel T. King, and Andria J. Farrens',
+      venue: 'Bioengineering 2026, 13, 602.',
+    },
+    {
+      title: 'Markerless Motion Capture Enhances Clinical Assessments: Preliminary Validation with the Box and Blocks Test.',
+      href: 'https://doi.org/10.1109/icorr66766.2025.11063098',
+      authors: 'Andria Farrens, Vicky Chan, Luis Garcia-Fernandez, Ziqiang (Joe) Zhu, Jun Min Kim, Matthew Karl Farrens, Samuel T King',
+      venue: 'IEEE Int Conf Rehabil Robot (ICORR). 2025 May.',
     },
   ]
 </script>
