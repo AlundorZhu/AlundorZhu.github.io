@@ -1,5 +1,9 @@
+<script module lang="ts">
+  export type Name = { text: string; lang?: string }
+</script>
+
 <script lang="ts">
-  let { names }: { names: string[] } = $props()
+  let { names }: { names: Name[] } = $props()
 
   const FACES = 4 // a cube has 4 faces around the X axis
   let turns = $state(0) // how many quarter-turns we've rolled
@@ -20,11 +24,24 @@
   )
 </script>
 
-<button class="roller" style="--turns: {turns}" onclick={() => turns++}>
-  <span class="sizer">{current}</span>
-  <span class="cube">
+<!-- aria-label is the button's accessible name, so the <h1> announces just the
+     current name once. Both inner layers are hidden from assistive tech:
+     opacity-0 and off-screen text is still read otherwise. -->
+<button
+  class="roller"
+  type="button"
+  aria-label={current.text}
+  style="--turns: {turns}"
+  onclick={() => turns++}
+>
+  <span class="sizer" aria-hidden="true">
+    {#each names as name}
+      <span lang={name.lang}>{name.text}</span>
+    {/each}
+  </span>
+  <span class="cube" aria-hidden="true">
     {#each faces as name, f}
-      <span class="face" style="--f: {f}">{name}</span>
+      <span class="face" style="--f: {f}" lang={name.lang}>{name.text}</span>
     {/each}
   </span>
 </button>
@@ -47,12 +64,17 @@
     --r: 0.6em; /* half the line height — the cube's radius */
   }
 
-  /* Invisible, but stays in flow so it gives the button its width, height,
-     and baseline. The visible faces are absolutely positioned on top. */
+  /* Invisible, but stays in flow so it gives the button its width, height, and
+     baseline. Every name is stacked into the single grid cell below, so the
+     cell measures the widest one and the width never changes as we roll. */
   .sizer {
-    opacity: 0;
-    white-space: nowrap;
+    display: inline-grid;
+    visibility: hidden;
     user-select: none;
+  }
+  .sizer > span {
+    grid-area: 1 / 1;
+    white-space: nowrap;
   }
 
   .cube {

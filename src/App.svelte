@@ -1,8 +1,14 @@
 <script lang="ts">
   import ThemeToggle from './lib/ThemeToggle.svelte'
-  import NameRoller from './lib/NameRoller.svelte'
+  import NameRoller, { type Name } from './lib/NameRoller.svelte'
 
-  const names = [ 'Joe Zhu', 'Ziqiang Zhu', '朱自强']
+  // The document is lang="en", so the Chinese name needs its own tag or
+  // screen readers read it with an English voice.
+  const names: Name[] = [
+    { text: 'Joe Zhu' },
+    { text: 'Ziqiang Zhu' },
+    { text: '朱自强', lang: 'zh-Hans' },
+  ]
 
   const links = [
     { label: 'github', href: 'https://github.com/AlundorZhu' },
@@ -22,7 +28,7 @@
       title: 'A Principled Framework for Safe Algorithm Updates in Automated Insulin Delivery Systems',
       href: 'https://doi.org/10.48550/arXiv.2606.13882',
       authors: "Thomas Screven, Ziqiang (Joe) Zhu, Deniz Cengiz, Rayhan A. Lal, Korey K. Hood, Samuel T. King",
-      venue: ""
+      venue: 'arXiv preprint, 2026.',
     },
     {
       title: 'Computer Vision for Movement Observation and Recovery Enhancement (C-MORE): Box and Blocks Test',
@@ -31,7 +37,7 @@
       venue: 'Bioengineering 2026, 13, 602.',
     },
     {
-      title: 'Markerless Motion Capture Enhances Clinical Assessments: Preliminary Validation with the Box and Blocks Test.',
+      title: 'Markerless Motion Capture Enhances Clinical Assessments: Preliminary Validation with the Box and Blocks Test',
       href: 'https://doi.org/10.1109/icorr66766.2025.11063098',
       authors: 'Andria Farrens, Vicky Chan, Luis Garcia-Fernandez, Ziqiang (Joe) Zhu, Jun Min Kim, Matthew Karl Farrens, Samuel T King',
       venue: 'IEEE Int Conf Rehabil Robot (ICORR). 2025 May.',
@@ -65,7 +71,7 @@
         <li>
           <a href={pub.href}>{pub.title}</a>
           <div class="meta">{pub.authors}</div>
-          <div class="meta">{pub.venue}</div>
+          {#if pub.venue}<div class="meta">{pub.venue}</div>{/if}
         </li>
       {/each}
     </ul>
