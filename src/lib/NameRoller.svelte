@@ -60,7 +60,7 @@
     inset: 0;
     transform-style: preserve-3d;
     transform: rotateX(calc(-90deg * var(--turns)));
-    transition: transform 700ms ease-out;
+    transition: transform 200ms ease-out;
   }
 
   .face {
