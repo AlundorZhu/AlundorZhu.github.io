@@ -10,14 +10,8 @@
     />
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='14'>朱</text></svg>"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='8' y='13' font-size='14' text-anchor='middle' fill='gray'>朱</text></svg>"
     />
-    <!-- Applies the saved theme before the bundle parses, so a dark-mode
-         visitor never sees a flash of light. -->
-    <script>
-      const t = localStorage.getItem('theme')
-      if (t) document.documentElement.style.colorScheme = t
-    </script>
   </head>
   <body>
     <div id="app"></div>

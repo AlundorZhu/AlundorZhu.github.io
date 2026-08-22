@@ -24,9 +24,6 @@
   )
 </script>
 
-<!-- aria-label is the button's accessible name, so the <h1> announces just the
-     current name once. Both inner layers are hidden from assistive tech:
-     opacity-0 and off-screen text is still read otherwise. -->
 <button
   class="roller"
   type="button"
@@ -48,7 +45,6 @@
 
 <style>
   .roller {
-    /* strip the button chrome so it reads as plain text */
     font: inherit;
     color: inherit;
     background: none;

@@ -85,6 +85,7 @@
     justify-content: space-between;
     align-items: baseline;
     gap: 0.5rem 1.5rem;
+    padding-inline: 1.5rem;
   }
 
   h1 {
