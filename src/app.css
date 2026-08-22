@@ -1,8 +1,21 @@
 :root {
   color-scheme: light dark;
   font: 18px/1.6 system-ui, sans-serif;
+  --muted: color-mix(in oklab, currentColor 60%, transparent);
 }
 
 body {
-  margin: 2rem;
+  margin: 2rem auto;
+  padding: 0 1.25rem;
+  max-width: 40rem;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--muted);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
 }
