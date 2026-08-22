@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 
 CLAUDE.md
+
+# LaTeX build output — only the resume source is tracked. The built PDF lives
+# at public/resume.pdf (committed, since CI has no LaTeX toolchain).
+resume/*
+!resume/main.tex

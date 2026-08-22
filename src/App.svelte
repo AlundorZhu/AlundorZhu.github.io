@@ -13,7 +13,7 @@
   const links = [
     { label: 'github', href: 'https://github.com/AlundorZhu' },
     { label: 'linkedin', href: 'https://www.linkedin.com/in/joe-zhu-032153259/' },
-    { label: 'resume', href: 'https://github.com/AlundorZhu/Resume/blob/main/main.pdf'}
+    { label: 'resume', href: '/resume.pdf' },
   ]
 
   type Publication = {
