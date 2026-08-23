@@ -24,13 +24,18 @@
   )
 </script>
 
+<!-- The name is real text rather than an aria-label so that `lang` is honored:
+     an aria-label would inherit the document's lang="en" and get read with an
+     English voice. The visible faces are all aria-hidden, so this span is what
+     a screen reader actually announces. -->
 <button
   class="roller"
   type="button"
-  aria-label={current.text}
+  title="Show another form of my name"
   style="--turns: {turns}"
   onclick={() => turns++}
 >
+  <span class="sr-only" lang={current.lang}>{current.text}</span>
   <span class="sizer" aria-hidden="true">
     {#each names as name}
       <span lang={name.lang}>{name.text}</span>
@@ -58,6 +63,17 @@
     line-height: 1.2;
     perspective: 1000px;
     --r: 0.6em; /* half the line height — the cube's radius */
+  }
+
+  /* Announced by screen readers, never painted. Taken out of flow entirely so
+     it cannot disturb the width and baseline that .sizer establishes. */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 
   /* Invisible, but stays in flow so it gives the button its width, height, and

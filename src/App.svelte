@@ -10,10 +10,15 @@
     { text: '朱自强', lang: 'zh-Hans' },
   ]
 
-  const links = [
+  // newTab is for documents, not for ordinary links — forcing _blank on a
+  // normal navigation takes the back button away from the visitor.
+  const links: { label: string; href: string; newTab?: boolean }[] = [
     { label: 'github', href: 'https://github.com/AlundorZhu' },
-    { label: 'linkedin', href: 'https://www.linkedin.com/in/joe-zhu-032153259/' },
-    { label: 'resume', href: '/resume.pdf' },
+    {
+      label: 'linkedin',
+      href: 'https://www.linkedin.com/in/joe-zhu-032153259/',
+    },
+    { label: 'resume', href: '/resume.pdf', newTab: true },
   ]
 
   type Publication = {
@@ -25,21 +30,27 @@
 
   const publications: Publication[] = [
     {
-      title: 'A Principled Framework for Safe Algorithm Updates in Automated Insulin Delivery Systems',
+      title:
+        'A Principled Framework for Safe Algorithm Updates in Automated Insulin Delivery Systems',
       href: 'https://doi.org/10.48550/arXiv.2606.13882',
-      authors: "Thomas Screven, Ziqiang (Joe) Zhu, Deniz Cengiz, Rayhan A. Lal, Korey K. Hood, Samuel T. King",
+      authors:
+        'Thomas Screven, Ziqiang (Joe) Zhu, Deniz Cengiz, Rayhan A. Lal, Korey K. Hood, Samuel T. King',
       venue: 'arXiv preprint, 2026.',
     },
     {
-      title: 'Computer Vision for Movement Observation and Recovery Enhancement (C-MORE): Box and Blocks Test',
+      title:
+        'Computer Vision for Movement Observation and Recovery Enhancement (C-MORE): Box and Blocks Test',
       href: 'https://doi.org/10.3390/bioengineering13060602',
-      authors: 'Kim, Jun Min, Ziqiang (Joe) Zhu, Hari Venugopalan, Vicky Chan, Matthew K. Farrens, Samuel T. King, and Andria J. Farrens',
+      authors:
+        'Kim, Jun Min, Ziqiang (Joe) Zhu, Hari Venugopalan, Vicky Chan, Matthew K. Farrens, Samuel T. King, and Andria J. Farrens',
       venue: 'Bioengineering 2026, 13, 602.',
     },
     {
-      title: 'Markerless Motion Capture Enhances Clinical Assessments: Preliminary Validation with the Box and Blocks Test',
+      title:
+        'Markerless Motion Capture Enhances Clinical Assessments: Preliminary Validation with the Box and Blocks Test',
       href: 'https://doi.org/10.1109/icorr66766.2025.11063098',
-      authors: 'Andria Farrens, Vicky Chan, Luis Garcia-Fernandez, Ziqiang (Joe) Zhu, Jun Min Kim, Matthew Karl Farrens, Samuel T King',
+      authors:
+        'Andria Farrens, Vicky Chan, Luis Garcia-Fernandez, Ziqiang (Joe) Zhu, Jun Min Kim, Matthew Karl Farrens, Samuel T King',
       venue: 'IEEE Int Conf Rehabil Robot (ICORR). 2025 May.',
     },
   ]
@@ -48,8 +59,14 @@
 <header>
   <h1><NameRoller {names} /></h1>
   <nav>
-    {#each links as { label, href }}
-      <a {href}>{label}</a>
+    {#each links as { label, href, newTab }}
+      <a
+        {href}
+        target={newTab ? '_blank' : null}
+        rel={newTab ? 'noopener' : null}
+      >
+        {label}
+      </a>
     {/each}
     <ThemeToggle />
   </nav>
@@ -59,9 +76,9 @@
   <p>
     I'm a master's student in computer science at
     <a href="https://www.ucdavis.edu">UC Davis</a>, where I work in Prof.
-    <a href="https://bob.cs.ucdavis.edu/">Sam King</a>'s lab.
-    Currently building an insulin pump for type 1 diabetes, and a stroke
-    rehabilitation assessment <a href="https://github.com/CMORE-UCD/iOS-app">app</a>.
+    <a href="https://bob.cs.ucdavis.edu/">Sam King</a>'s lab. Currently building
+    an insulin pump for type 1 diabetes, and a stroke rehabilitation assessment
+    <a href="https://github.com/CMORE-UCD/iOS-app">app</a>.
   </p>
 
   <section>
@@ -71,7 +88,7 @@
         <li>
           <a href={pub.href}>{pub.title}</a>
           <div class="meta">{pub.authors}</div>
-          {#if pub.venue}<div class="meta">{pub.venue}</div>{/if}
+          <div class="meta">{pub.venue}</div>
         </li>
       {/each}
     </ul>

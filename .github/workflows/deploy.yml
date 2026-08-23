@@ -19,8 +19,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0 # the resume freshness check below reads git history
+      - name: Resume PDF is up to date
+        run: |
+          tex=$(git log -1 --format=%ct -- resume/main.tex)
+          pdf=$(git log -1 --format=%ct -- public/resume.pdf)
+          if [ -z "$tex" ] || [ -z "$pdf" ]; then
+            echo "Could not read commit times for resume/main.tex or public/resume.pdf."
+            echo "Both must be tracked, and checkout needs fetch-depth: 0."
+            exit 1
+          fi
+          if [ "$tex" -gt "$pdf" ]; then
+            echo "resume/main.tex changed after public/resume.pdf was last rebuilt."
+            echo "Run 'bun run resume' and commit the PDF."
+            exit 1
+          fi
       - uses: oven-sh/setup-bun@v2.2.0
       - run: bun install --frozen-lockfile
+      - run: bun run format:check
       - run: bun run check
       - run: bun run build
       - uses: actions/configure-pages@v6
