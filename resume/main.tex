@@ -60,7 +60,7 @@
 
 \titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
 
-\titlespacing{\section}{-1pt}{0.20 cm}{0.14 cm}
+\titlespacing{\section}{-1pt}{0.17 cm}{0.12 cm}
 
 \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
 
@@ -124,10 +124,17 @@
 }
 
 % Spacing between consecutive entries inside a section:
-\newcommand{\entrygap}{\vspace{0.13 cm}}
+\newcommand{\entrygap}{\vspace{0.11 cm}}
 
 % save the original href command in a new command:
 \let\hrefWithoutArrow\href
+
+% ---------------------------------------------------------------------------
+% Faculty links.
+% ---------------------------------------------------------------------------
+\newcommand{\profSamKing}{%
+    \hrefWithoutArrow{https://bob.cs.ucdavis.edu/}{Prof.\ Sam King}%
+}
 
 % ---------------------------------------------------------------------------
 \begin{document}
@@ -163,18 +170,6 @@
         \mbox{\hrefWithoutArrow{https://alundorzhu.github.io/}{alundorzhu.github.io}}%
     \end{header}
 
-    \vspace{0.16 cm}
-
-    \begin{onecolentry}
-        \centering
-        % TODO: update the content
-        M.S.\ Computer Science (Dec 2026) building computer-vision systems that ship --- ICORR 2025
-        publication, a 190k-image dataset and its labeling tooling, models running on-device at
-        120\,fps. Strong across the full loop: data, training, evaluation, deployment.
-    \end{onecolentry}
-
-    \vspace{0.1 cm}
-
     \section{Education}
 
         \begin{twocolentry}{
@@ -188,11 +183,16 @@
             \begin{highlights}
                 \item \textbf{M.S.\ Computer Science} (expected Dec 2026); \textbf{B.S.\ Computer
                       Science}, Minor in English (Aug 2025), GPA 3.7/4.0
-                \item \textbf{Coursework:} Machine Learning, Artificial Intelligence, Statistics,
-                      Operating Systems, Computer Architecture, Computer Networks, Computer Security
+                \item \textbf{Coursework:} Operating Systems, Computer Architecture, Networks,
+                      Security, Machine Learning, Artificial Intelligence
             \end{highlights}
         \end{onecolentry}
 
+    % ======================================================================
+    % EXPERIENCE -- deliberately THIN. One or two lines per role: scope,
+    % team, duration. Project-level detail lives in Selected Projects below.
+    % Do not let these grow bullets again.
+    % ======================================================================
     \section{Experience}
 
         \begin{twocolentry}{
@@ -201,42 +201,24 @@
             \textbf{Graduate Research Assistant}, UC Davis CS Department -- Davis, CA
         \end{twocolentry}
 
-        \vspace{0.10 cm}
+        \vspace{0.06 cm}
         \begin{onecolentry}
-            \begin{highlights}
-                % TODO: fix this
-                \item Designed a real-time clinical scoring algorithm for the Box-and-Blocks Test with
-                      \textbf{over 99\% agreement} with physician scoring; shipped it as an on-device iOS
-                      pipeline (CoreML + Vision), no dropped frames at \textbf{120\,fps}
-                      (\href{https://github.com/AlundorZhu/CMORE-app}{demo app}).
-                \item Collected and curated a \textbf{190k+ labeled image} dataset and built a
-                      semi-automatic labeler on SAM~2 (Python, OpenCV, Tkinter) that cut annotation
-                      time per video from hours to minutes.
-                \item Trained keypoint-detection (PyTorch, Ultralytics YOLO) and object-detection
-                      (TensorFlow/Keras) pipelines, raising held-out accuracy via targeted
-                      augmentation and hyperparameter search.
-                \item Extracted motion features below human perceptual resolution, exposing
-                      stroke-recovery patterns clinicians cannot score by eye
-                      (see \hyperref[pub:markerless-motion-capture]{Publications}).
-            \end{highlights}
+            Health care research for Type 1 Diabetes and stroke rehabilitation with
+            \profSamKing.
         \end{onecolentry}
 
         \entrygap
 
         \begin{twocolentry}{
-            Sept 2025 -- Present
+            Sept 2025 -- June 2026
         }
             \textbf{Teaching Assistant}, Computer Architecture -- Davis, CA
         \end{twocolentry}
 
-        \vspace{0.10 cm}
+        \vspace{0.06 cm}
         \begin{onecolentry}
-            \begin{highlights}
-                \item Built an autograder (Python + Logisim) that returns specific, actionable error
-                      messages instead of pass/fail, cutting repeated debugging questions.
-                \item Wrote and graded assignments, ran office hours, and revised course material
-                      against the instructor's learning objectives and student feedback.
-            \end{highlights}
+            Built the course autograder (Python + Logisim) returning specific, actionable errors
+            instead of pass/fail; wrote and graded assignments and ran office hours.
         \end{onecolentry}
 
         \entrygap
@@ -247,21 +229,16 @@
             \textbf{Vision Mentor \& Team Lead}, Cyclone RoboSub -- Davis, CA
         \end{twocolentry}
 
-        \vspace{0.10 cm}
+        \vspace{0.06 cm}
         \begin{onecolentry}
-            \begin{highlights}
-                \item Mentor the perception stack of an autonomous underwater vehicle (ROS, OpenCV,
-                      YOLO) and built the team's capture, labeling, and training tooling, taking new
-                      members from data collection through deployed models.
-                \item Reached the \textbf{semifinals at RoboSub 2025} ahead of UC Berkeley, coordinating
-                      with the mechanical and electrical sub-teams.
-            \end{highlights}
+            Lead the vision stack of an autonomous underwater vehicle (ROS, OpenCV, YOLO) and the
+            team's capture/labeling/training tooling. Semifinals at RoboSub 2025, 2026.
         \end{onecolentry}
 
         \entrygap
 
         \begin{twocolentry}{
-            June 2024 -- Dec 2025
+            June 2024 -- Mar 2026
         }
             \textbf{Transit Operator}, Unitrans / ASUCD -- Davis, CA
         \end{twocolentry}
@@ -272,70 +249,136 @@
             on a student-run team of 200+ drivers.
         \end{onecolentry}
 
-    \section{Publications}
-
-        \begin{samepage}
-            \begin{onecolentry}
-                \textbf{Markerless Motion Capture Enhances Clinical Assessments: Preliminary
-                Validation with the Box and Blocks Test.} International Conference on
-                Rehabilitation Robotics (ICORR), Chicago, IL, USA, 2025, pp.~1506--1511.
-                doi:~\href{https://doi.org/10.1109/ICORR66766.2025.11063098}{10.1109/ICORR66766.2025.11063098}
-                \\ Andria Farrens, Vicky Chan, Luis Garcia-Fernandez,
-                \textbf{\textit{Ziqiang ``Joe'' Zhu}}
-                \label{pub:markerless-motion-capture}
-            \end{onecolentry}
-        \end{samepage}
-
-    \section{Projects}
+    % ======================================================================
+    % SELECTED PROJECTS -- the substance. One header per project, with its
+    % own stack and outcome. THIS is where new work goes; retire the
+    % weakest entry rather than appending a fourth/fifth.
+    % Ordering: strongest + most role-relevant first.
+    % ======================================================================
+    \section{Selected Projects}
 
         \begin{twocolentry}{
-            \href{https://github.com/Cyclone-Robosub/Labeler}{github.com/Cyclone-Robosub/Labeler}
+            2026 -- Present
         }
-            \textbf{Video Labeling Tool} --- Python, SAM~2, OpenCV, Tkinter
+            \textbf{Formally Verified Insulin Pump Firmware} --- Rust, Kani, embedded
         \end{twocolentry}
 
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item One-click object tracking with COCO-format bounding-box export, turning an
-                      hours-long manual pass into a review step.
+                \item Building safety-critical insulin-pump firmware in Rust on embedded hardware,
+                      structured so personalized dosing algorithms can be safely extended.
+                \item Proving correctness rather than testing for it: Kani bounded model checking
+                      over the Rust implementation.
             \end{highlights}
         \end{onecolentry}
 
+        \entrygap
+
+        \entrygap
+
+        \begin{twocolentry}{
+            \href{https://github.com/AlundorZhu/CMORE-app}{github.com/AlundorZhu/CMORE-app}
+        }
+            \textbf{C-MORE Real-Time Clinical Scoring (iOS)} --- Swift, CoreML, Vision, PyTorch
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Scores the Box-and-Blocks Test from video with \textbf{over 99\% agreement} with
+                      physician scoring; fully on-device, no dropped frames at \textbf{120\,fps} on an
+                      iPhone~15~Pro.
+                \item Keypoint-detection (PyTorch, Ultralytics YOLO) and object-detection
+                      (TensorFlow/Keras) models behind it, fine tuned on custom dataset.
+            \end{highlights}
+        \end{onecolentry}
+
+        \entrygap
+
+        \begin{twocolentry}{
+            \href{https://github.com/Cyclone-Robosub/Labeler}{github.com/Cyclone-Robosub/Labeler}
+        }
+            \textbf{Semi-Automatic Video Labeler} --- Python, SAM~2, OpenCV,
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item One-click object tracking with COCO-format export, cutting annotation from hours
+                      to minutes per video; produced a \textbf{190k+ labeled-image} dataset now used
+                      across the group.
+            \end{highlights}
+        \end{onecolentry}
 
         \entrygap
 
         \begin{twocolentry}{
             2023
         }
-            \textbf{UNIX-style File System} --- C++, pthreads, AWS S3
+            \textbf{UNIX-style File System} --- C++, pthreads
         \end{twocolentry}
 
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
                 \item Multithreaded file system over S3 put/get/delete: inode layout, directory
-                      traversal, concurrent client sessions.
+                      traversal, and concurrent client sessions.
             \end{highlights}
         \end{onecolentry}
 
+    % ======================================================================
+    % PUBLICATIONS -- compressed to two lines each. They are a credibility
+    % signal for SWE hiring, not the main event; the full citations live on
+    % your site and Google Scholar.
+    % ======================================================================
+    \section{Publications \& Preprints}
+
+        \begin{onecolentry}
+            \textbf{\href{https://doi.org/10.48550/arXiv.2606.13882}{A Principled Framework for Safe
+            Algorithm Updates in Automated Insulin Delivery Systems.}} T. Screven,
+            \textbf{\textit{Z. Zhu}}, et al. \textit{Preprint}, arXiv:2606.13882, 2026.
+            \label{pub:aid-safe-updates}
+        \end{onecolentry}
+
+        \vspace{0.10 cm}
+
+        \begin{onecolentry}
+            \textbf{\href{https://doi.org/10.3390/bioengineering13060602}{C-MORE: Computer Vision for
+            Movement Observation and Recovery Enhancement --- Box and Blocks Test.}} J. M. Kim,
+            \textbf{\textit{Z. Zhu}}, et al. \textit{Bioengineering} 13(6):602, 2026.
+            \label{pub:cmore}
+        \end{onecolentry}
+
+        \vspace{0.10 cm}
+
+        \begin{onecolentry}
+            \textbf{\href{https://doi.org/10.1109/ICORR66766.2025.11063098}{Markerless Motion Capture
+            Enhances Clinical Assessments: Validation with the Box and Blocks Test.}} A. Farrens,
+            V. Chan, L. Garcia-Fernandez, \textbf{\textit{Z. Zhu}}. \textit{ICORR} 2025, pp.~1506--1511.
+            \label{pub:markerless-motion-capture}
+        \end{onecolentry}
+
+    % ======================================================================
+    % SKILLS -- reordered for SWE: systems languages first, ML last.
+    % ======================================================================
     \section{Skills}
 
         \begin{onecolentry}
-            \textbf{Languages:} Python, C++, C, Swift, Go, Java, JavaScript/TypeScript, R, MATLAB, Chisel
+            \textbf{Languages:} Rust, Swift, Go, Python, C++, C
+        \end{onecolentry}
+
+        \vspace{0.08 cm}
+
+        \begin{onecolentry}
+            \textbf{Systems \& Tools:} Kani, Linux, Docker, Git, concurrency, ROS, CoreML
         \end{onecolentry}
 
         \vspace{0.10 cm}
 
         \begin{onecolentry}
-            \textbf{ML \& Vision:} PyTorch, TensorFlow/Keras, Ultralytics YOLO, SAM~2, CoreML, Apple
-            Vision, MediaPipe, OpenCV, NumPy
-        \end{onecolentry}
-
-        \vspace{0.10 cm}
-
-        \begin{onecolentry}
-            \textbf{Systems \& Tools:} Linux, Docker, Git, ROS, AWS S3, LiDAR and camera pipelines
+            \textbf{ML \& Vision:} PyTorch, TensorFlow/Keras, Ultralytics YOLO, SAM~2/3, OpenCV,
+            MediaPipe, NumPy
         \end{onecolentry}
 
         \vspace{0.10 cm}
