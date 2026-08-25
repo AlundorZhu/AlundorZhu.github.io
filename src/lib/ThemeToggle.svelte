@@ -3,6 +3,9 @@
 
   const system = matchMedia('(prefers-color-scheme: dark)')
 
+  // Deliberately not persisted. The OS preference is the source of truth; a
+  // click is a temporary divergence that lasts until the next OS change or the
+  // next page load, whichever comes first.
   let override = $state<Theme | null>(null)
   let systemDark = $state(system.matches)
 

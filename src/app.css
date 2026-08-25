@@ -1,6 +1,8 @@
 :root {
   color-scheme: light dark;
-  font: 18px/1.6 system-ui, sans-serif;
+  font:
+    18px/1.6 system-ui,
+    sans-serif;
   --muted: color-mix(in oklab, currentColor 60%, transparent);
 }
 
