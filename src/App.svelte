@@ -26,9 +26,29 @@
     href: string
     authors: string
     venue: string
+    // Extra links shown after the venue, e.g. the workshop page or a talk.
+    links?: { label: string; href: string }[]
   }
 
   const publications: Publication[] = [
+    {
+      title:
+        'TypeZero: Building Trustworthy Computer Systems for Human Augmentation',
+      href: '/typezero.pdf',
+      authors:
+        'Ziqiang (Joe) Zhu, Thomas Screven, Amanda Raybuck, Samuel T. King',
+      venue: 'Sys4Health Workshop at SOSP 2026.',
+      links: [
+        {
+          label: 'workshop',
+          href: 'https://konstantina-koliogeorgi.github.io/sys4health-sosp26/',
+        },
+        {
+          label: 'talk by Thomas Screven',
+          href: 'https://www.youtube.com/watch?v=rzzepjCeo5s&t=7835s',
+        },
+      ],
+    },
     {
       title:
         'A Principled Framework for Safe Algorithm Updates in Automated Insulin Delivery Systems',
@@ -88,7 +108,12 @@
         <li>
           <a href={pub.href}>{pub.title}</a>
           <div class="meta">{pub.authors}</div>
-          <div class="meta">{pub.venue}</div>
+          <div class="meta">
+            {pub.venue}
+            {#each pub.links ?? [] as link}
+              [<a href={link.href}>{link.label}</a>]
+            {/each}
+          </div>
         </li>
       {/each}
     </ul>

@@ -5,8 +5,8 @@
 % ---------------------------------------------------------------------------
 \usepackage[
     ignoreheadfoot, % set margins without considering header and footer
-    top=1.25 cm,
-    bottom=1.25 cm,
+    top=1.0 cm,
+    bottom=1.0 cm,
     left=1.6 cm,
     right=1.6 cm,
     footskip=1.0 cm,
@@ -173,7 +173,7 @@
     \section{Education}
 
         \begin{twocolentry}{
-            Sept 2021 -- Mar 2027 (expected)
+            Sept 2021 -- June 2027 (expected)
         }
             \textbf{University of California, Davis} -- Davis, CA
         \end{twocolentry}
@@ -181,7 +181,7 @@
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item \textbf{M.S.\ Computer Science} (expected Mar 2027); \textbf{B.S.\ Computer
+                \item \textbf{M.S.\ Computer Science} (expected June 2027); \textbf{B.S.\ Computer
                       Science}, Minor in English (Aug 2025), GPA 3.7/4.0
                 \item \textbf{Coursework:} Operating Systems, Computer Architecture, Networks,
                       Security, Machine Learning, Artificial Intelligence
@@ -264,7 +264,7 @@
         \begin{twocolentry}{
             2026 -- Present
         }
-            \textbf{Formally Verified Insulin Pump Firmware} --- Rust, Kani, embedded
+            \textbf{Formally Verified Insulin Pump Firmware} --- Rust, Verus, Kani, embedded
         \end{twocolentry}
 
         \vspace{0.10 cm}
@@ -272,8 +272,8 @@
             \begin{highlights}
                 \item Building safety-critical insulin-pump firmware in Rust on embedded hardware,
                       structured so personalized dosing algorithms can be safely extended.
-                \item Proving correctness rather than testing for it: Kani bounded model checking
-                      over the Rust implementation.
+                \item Proving correctness rather than testing for it: Verus proofs and Kani model checking
+                      over the Rust code.
             \end{highlights}
         \end{onecolentry}
 
@@ -339,6 +339,16 @@
     \section{Publications \& Preprints}
 
         \begin{onecolentry}
+            \textbf{\href{https://alundorzhu.github.io/typezero.pdf}{TypeZero: Building Trustworthy Computer Systems for Human
+            Augmentation.}} \textbf{\textit{Ziqiang ``Joe'' Zhu}}, Thomas Screven, Amanda Raybuck, Samuel T. King.
+            \href{https://konstantina-koliogeorgi.github.io/sys4health-sosp26/}{\textit{Sys4Health @ SOSP}} 2026.
+            \href{https://www.youtube.com/watch?v=rzzepjCeo5s\&t=7835s}{Talk}
+            \label{pub:typezero}
+        \end{onecolentry}
+
+        \vspace{0.10 cm}
+
+        \begin{onecolentry}
             \textbf{A Principled Framework for Safe Algorithm Updates in Automated Insulin Delivery
             Systems.} Thomas Screven, \textbf{\textit{Ziqiang ``Joe'' Zhu}}, Deniz Cengiz, Rayhan A. Lal,
             Korey K. Hood, Samuel T. King. \textit{Preprint}, arXiv:2606.13882, 2026.
@@ -380,7 +390,7 @@
         \vspace{0.08 cm}
 
         \begin{onecolentry}
-            \textbf{Systems \& Tools:} Kani, Linux, Docker, Git, concurrency, ROS, CoreML
+            \textbf{Systems \& Tools:} Verus, Kani, Linux, Docker, Git, concurrency, ROS, CoreML
         \end{onecolentry}
 
         \vspace{0.10 cm}
