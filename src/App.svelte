@@ -55,7 +55,8 @@
       href: 'https://doi.org/10.48550/arXiv.2606.13882',
       authors:
         'Thomas Screven, Ziqiang (Joe) Zhu, Deniz Cengiz, Rayhan A. Lal, Korey K. Hood, Samuel T. King',
-      venue: 'Diabetes Technology & Therapeutics (DTT), 2026 (accepted). Leading diabetes-technology journal.',
+      venue:
+        'Diabetes Technology & Therapeutics (DTT), 2026 (accepted). Leading diabetes-technology journal.',
     },
     {
       title:
