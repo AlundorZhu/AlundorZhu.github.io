@@ -182,7 +182,7 @@
         \begin{onecolentry}
             \begin{highlights}
                 \item \textbf{M.S.\ Computer Science} (expected June 2027); \textbf{B.S.\ Computer
-                      Science}, Minor in English (Aug 2025), GPA 3.7/4.0
+                      Science} (Aug 2025), Minor in English, GPA 3.7/4.0
                 \item \textbf{Coursework:} Operating Systems, Computer Architecture, Networks,
                       Security, Machine Learning, Artificial Intelligence
             \end{highlights}
@@ -203,7 +203,7 @@
 
         \vspace{0.06 cm}
         \begin{onecolentry}
-            Health care research for Type 1 Diabetes and stroke rehabilitation with
+            Health care research for Type 1 diabetes and stroke rehabilitation with
             \profSamKing.
         \end{onecolentry}
 
@@ -219,7 +219,7 @@
         \vspace{0.06 cm}
         \begin{onecolentry}
             Lead the vision stack of an autonomous underwater vehicle (ROS, OpenCV, YOLO) and the
-            team's capture/labeling/training tooling. Semifinals at RoboSub 2025, 2026.
+            team's capture/labeling/training tooling. Semifinals at RoboSub 2025 and 2026.
         \end{onecolentry}
 
 
@@ -264,20 +264,22 @@
         \begin{twocolentry}{
             2026 -- Present
         }
-            \textbf{Formally Verified Insulin Pump Firmware} --- Rust, Verus, Kani, embedded
+            \textbf{Formally Verified Insulin Pump Firmware} --- Rust, Verus, no\_std, embedded
         \end{twocolentry}
 
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item Building safety-critical insulin-pump firmware in Rust on embedded hardware,
-                      structured so personalized dosing algorithms can be safely extended.
-                \item Proving correctness rather than testing for it: Verus proofs and Kani model checking
-                      over the Rust code.
+                \item Verified the dosing core ($\sim$10k lines of Rust and proof, no unsafe, no floats) in Verus
+                      with zero assumes: a type invariant proves every delivered dose and accepted command
+                      passed the safety guard.
+                \item Designed as a reference monitor: the dosing controller and all BLE requests are
+                      untrusted and mediated by one verified guard, so a swapped or faulty controller cannot
+                      exceed insulin-on-board or rate limits.
+                \item Proved fail-safe suspend and overflow-free fixed-point arithmetic; trusted base is
+                      three hardware contracts (pump driver, clock, flash).
             \end{highlights}
         \end{onecolentry}
-
-        \entrygap
 
         \entrygap
 
@@ -290,28 +292,9 @@
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item Scores the Box-and-Blocks Test from video with \textbf{over 99\% agreement} with
+                \item Scores the Box and Blocks Test from video with \textbf{over 99\% agreement} with
                       physician scoring; fully on-device, no dropped frames at \textbf{60\,fps} on an
                       iPhone~15~Pro.
-                \item Keypoint-detection (PyTorch, Ultralytics YOLO) and object-detection
-                      (TensorFlow/Keras) models behind it, fine tuned on custom dataset.
-            \end{highlights}
-        \end{onecolentry}
-
-        \entrygap
-
-        \begin{twocolentry}{
-            \href{https://github.com/Cyclone-Robosub/Labeler}{github.com/Cyclone-Robosub/Labeler}
-        }
-            \textbf{Semi-Automatic Video Labeler} --- Python, SAM~2, OpenCV
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item One-click object tracking with COCO-format export, cutting annotation from hours
-                      to minutes per video; produced a \textbf{190k+ labeled-image} dataset now used
-                      across the group.
             \end{highlights}
         \end{onecolentry}
 
@@ -336,7 +319,7 @@
     % signal for SWE hiring, not the main event; the full citations live on
     % your site and Google Scholar.
     % ======================================================================
-    \section{Publications \& Preprints}
+    \section{Publications}
 
         \begin{onecolentry}
             \textbf{\href{https://alundorzhu.github.io/typezero.pdf}{TypeZero: Building Trustworthy Computer Systems for Human
@@ -351,8 +334,8 @@
         \begin{onecolentry}
             \textbf{A Principled Framework for Safe Algorithm Updates in Automated Insulin Delivery
             Systems.} Thomas Screven, \textbf{\textit{Ziqiang ``Joe'' Zhu}}, Deniz Cengiz, Rayhan A. Lal,
-            Korey K. Hood, Samuel T. King. \textit{Preprint}, arXiv:2606.13882, 2026.
-            doi:~\href{https://doi.org/10.48550/arXiv.2606.13882}{10.48550/arXiv.2606.13882}
+            Korey K. Hood, Samuel T. King. \textit{Diabetes Technology \& Therapeutics (DTT)}, 2026 (accepted); leading diabetes-technology journal.
+            preprint doi:~\href{https://doi.org/10.48550/arXiv.2606.13882}{10.48550/arXiv.2606.13882}
             \label{pub:aid-safe-updates}
         \end{onecolentry}
 
@@ -390,7 +373,7 @@
         \vspace{0.08 cm}
 
         \begin{onecolentry}
-            \textbf{Systems \& Tools:} Verus, Kani, Linux, Docker, Git, concurrency, ROS, CoreML
+            \textbf{Systems \& Tools:} Verus, Kani, nRF5340, ESP32, Linux, Docker, Git, concurrency, ROS, CoreML
         \end{onecolentry}
 
         \vspace{0.10 cm}
